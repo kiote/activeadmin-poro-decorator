@@ -1,3 +1,3 @@
-module Poroaa
-  VERSION = "0.0.1"
+module ActiveadminPoroDecorator
+  VERSION = "0.0.2"
 end
