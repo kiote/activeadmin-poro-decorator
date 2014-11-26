@@ -5,7 +5,7 @@ require 'activeadmin-poro-decorator/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "activeadmin-poro-decorator"
-  spec.version       = Poroaa::VERSION
+  spec.version       = ActiveadminPoroDecorator::VERSION
   spec.authors       = ["Krivich Ekaterina"]
   spec.email         = ["krivich.ekaterina@gmail.com"]
   spec.summary       = %q{Plain Old Ruby Objects as Decorators for Active Admin}
