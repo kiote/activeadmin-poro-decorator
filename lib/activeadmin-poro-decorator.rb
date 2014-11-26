@@ -2,6 +2,8 @@ require 'activeadmin-poro-decorator/version'
 require 'activeadmin-poro-decorator/config'
 
 module ActiveadminPoroDecorator
+  require 'activeadmin-poro-decorator/railtie' if defined?(Rails)
+
   extend ActiveSupport::Concern
 
   def helpers
