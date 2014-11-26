@@ -39,7 +39,7 @@ module ActiveadminPoroDecorator
     end
 
     def klass
-      "#{@class_name}Presenter".constantize
+      "#{@class_name}Decorator".constantize
     end
 
     def wrapped_collection
