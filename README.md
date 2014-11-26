@@ -4,6 +4,8 @@ Alternative for draper, if you need decorators at ActiveAdmin (and Rails).
 Active Admin uses of Draper gem for [decorators](http://activeadmin.info/docs/11-decorators.html), but sometimes you don't need that.
 For reasons you could read this article: http://thepugautomatic.com/2014/03/draper.
 
+See discussion of PORO with Active Admin authors [here](https://github.com/activeadmin/activeadmin/issues/3600).
+
 ## Installation
 
 Add this line to your application's Gemfile:
