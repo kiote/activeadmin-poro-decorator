@@ -41,7 +41,8 @@ module ActiveadminPoroDecorator
     end
 
     def klass
-      "#{@class_name}Decorator".constantize
+      config = Config::Reader.new
+      "#{@class_name}#{config['modelname']}".constantize
     end
 
     def wrapped_collection
