@@ -22,6 +22,14 @@ Or install it yourself as:
 
     $ gem install activeadmin-poro-decorator
 
+Then run rake-task to copy config file:
+
+    $ rake config:copy
+
+Finally, rename activeadmin-poro-decorator.yml.sample to activeadmin-poro-decorator.yml:
+
+    $ mv config/activeadmin-poro-decorator.yml.sample config/activeadmin-poro-decorator.yml
+
 ## Usage
 
 ```ruby
