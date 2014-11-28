@@ -28,7 +28,7 @@ Then run rake-task to copy config file:
 
 Finally, rename activeadmin-poro-decorator.yml.sample to activeadmin-poro-decorator.yml:
 
-    $ mv config/activeadmin-poro-decorator.yml.sample config/activeadmin-poro-decorator.yml
+    $ mv config/activeadmin-poro-decorator.yml.example config/activeadmin-poro-decorator.yml
 
 ## Usage
 
