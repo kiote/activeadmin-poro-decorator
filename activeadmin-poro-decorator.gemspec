@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["krivich.ekaterina@gmail.com"]
   spec.summary       = %q{Plain Old Ruby Objects as Decorators for Active Admin}
   spec.description   = %q{Inspired by http://thepugautomatic.com/2014/03/draper/ to not use draper while decorating th}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/kiote/activeadmin-poro-decorator"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
