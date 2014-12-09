@@ -17,7 +17,7 @@ module ActiveadminPoroDecorator
     def decorate(*args)
       collection_or_object = args[0]
       if collection_or_object.respond_to?(:to_ary)
-        class_name = collection_or_object.class.to_s.deconstantize
+        class_name = collection_or_object.class.to_s.demodulize.gsub('ActiveRecord_Relation_', '')
         DecoratedEnumerableProxy.new(collection_or_object, class_name)
       else
         new(collection_or_object)
