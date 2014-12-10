@@ -2,6 +2,16 @@ require 'activeadmin-poro-decorator/version'
 require 'activeadmin-poro-decorator/config'
 require 'activeadmin-poro-decorator/railtie' if defined?(Rails)
 
+# monkey patch to make ActiveAdmin::Comment works with activeadmin_poro_decorator
+module ActiveAdmin
+  class Comment < ActiveRecord::Base
+    # @returns [String] The name of the record to use for the polymorphic relationship
+    def self.resource_type(resource)
+      resource.type
+    end
+  end
+end
+
 module ActiveadminPoroDecorator
   extend ActiveSupport::Concern
 
