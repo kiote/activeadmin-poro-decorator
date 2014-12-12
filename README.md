@@ -32,6 +32,8 @@ Finally, rename activeadmin-poro-decorator.yml.sample to activeadmin-poro-decora
 
 ## Usage
 
+For more examples see [sample app](https://github.com/kiote/aa_plus_poro)
+
 ```ruby
 # app/admin/post.rb
 ActiveAdmin.register Post do
