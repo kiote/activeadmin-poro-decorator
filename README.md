@@ -1,5 +1,7 @@
 # Activeadmin Poro Decorator
 
+![](https://travis-ci.org/kiote/activeadmin-poro-decorator.svg?branch=master)
+
 Alternative for draper, if you need decorators at ActiveAdmin (and Rails).
 Active Admin uses the Draper gem for [decorators](http://activeadmin.info/docs/11-decorators.html), but sometimes you don't need that.
 For reasons you could read this article: http://thepugautomatic.com/2014/03/draper.
