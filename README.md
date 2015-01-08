@@ -73,6 +73,11 @@ end
 
 For more examples have a look to [sample app](https://github.com/kiote/aa_plus_poro)
 
+## Credits
+![http://www.legelisten.no/om-oss](http://d3a5orex94acl6.cloudfront.net/assets/logo-sprites-a6de3b3521c14ee436ca3207d83cdf90.png)
+
+Activeadmin-poro-decorator is created with support of [Legelisten.no](http://www.legelisten.no/om-oss)
+
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/activeadmin-poro-decorator/fork )
