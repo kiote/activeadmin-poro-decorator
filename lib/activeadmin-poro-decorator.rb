@@ -14,8 +14,20 @@ module ActiveadminPoroDecorator
   end
 
   module ClassMethods
+    def const_model_name
+      model_name.to_s.constantize
+    end
+
+    # we need this to support active record interface
+    [:all, :arel_table, :find_by_sql, :columns, :connection,\
+     :unscoped, :table_name, :primary_key].each do |delegated_method|
+      define_method(delegated_method) do |*args|
+        const_model_name.send(delegated_method, *args)
+      end
+    end
+
     def build_default_scope
-      model_name.to_s.constantize.send(:build_default_scope)
+      const_model_name.send(:build_default_scope)
     end
 
     def decorate(*args)
@@ -23,8 +35,7 @@ module ActiveadminPoroDecorator
       if collection_or_object.respond_to?(:to_ary)
         # assuming we have self.model_name method in decorator implementation
         # suggested by @eyefodder
-        class_name = model_name.to_s.constantize
-        DecoratedEnumerableProxy.new(collection_or_object, class_name)
+        DecoratedEnumerableProxy.new(collection_or_object, const_model_name)
       else
         new(collection_or_object)
       end

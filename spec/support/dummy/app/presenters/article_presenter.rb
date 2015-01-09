@@ -3,9 +3,6 @@ class ArticlePresenter < DelegateClass(Article)
   include ActiveadminPoroDecorator
 
   class << self
-    delegate :all, :arel_table, :find_by_sql, :columns, :connection,\
-             :unscoped, :table_name, :primary_key, to: Article
-
     def model_name
       ActiveModel::Name.new Article
     end
