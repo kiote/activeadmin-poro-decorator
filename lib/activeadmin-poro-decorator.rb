@@ -14,6 +14,10 @@ module ActiveadminPoroDecorator
   end
 
   module ClassMethods
+    def build_default_scope
+      model_name.to_s.constantize.send(:build_default_scope)
+    end
+
     def decorate(*args)
       collection_or_object = args[0]
       if collection_or_object.respond_to?(:to_ary)

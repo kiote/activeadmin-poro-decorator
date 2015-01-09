@@ -9,10 +9,6 @@ class ArticlePresenter < DelegateClass(Article)
     def model_name
       ActiveModel::Name.new Article
     end
-
-    def build_default_scope
-      Article.send(:build_default_scope)
-    end
   end
   
   def hello
