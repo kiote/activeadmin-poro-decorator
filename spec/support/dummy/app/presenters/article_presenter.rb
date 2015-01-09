@@ -2,10 +2,6 @@
 class ArticlePresenter < DelegateClass(Article)
   include ActiveadminPoroDecorator
 
-  def self.model_name
-    ActiveModel::Name.new Article
-  end
-  
   def hello
     "Hello, #{title}"
   end

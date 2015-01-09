@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    activeadmin-poro-decorator (0.1.0)
+    activeadmin-poro-decorator (0.1.4)
       rails (>= 4.0.0)
 
 GEM
