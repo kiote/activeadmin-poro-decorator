@@ -53,12 +53,13 @@ end
 class PostDecorator < DelegateClass(Post)
   include ActiveadminPoroDecorator
 
-  def self.model_name
-    ActiveModel::Name.new Post
-  end
+  class << self
+    delegate :all, :arel_table, :find_by_sql, :columns, :connection,\
+             :unscoped, :table_name, :primary_key, to: Post
 
-  def self.columns
-    Post.columns
+    def model_name
+      ActiveModel::Name.new Post
+    end
   end
 
   def hello
