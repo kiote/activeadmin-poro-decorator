@@ -1,6 +1,7 @@
 require 'activeadmin-poro-decorator/version'
 require 'activeadmin-poro-decorator/config'
 require 'activeadmin-poro-decorator/railtie'
+require 'activeadmin-poro-decorator/comment'
 
 module ActiveadminPoroDecorator
   extend ActiveSupport::Concern
@@ -18,32 +19,31 @@ module ActiveadminPoroDecorator
   end
 
   def model
-    config = Config::Reader.new
-    ActiveModel::Name.new self.to_s.gsub(config.param('modelname'), '').constantize
+    self.class.model_name_const
   end
 
   module ClassMethods
+    def model_name_const
+      config = Config::Reader.new
+      self.to_s.gsub(config.param('modelname'), '').constantize
+    end
+
     # obtain original model name
     # ArticlePresenter -> Article
     def model_name
-      config = Config::Reader.new
-      ActiveModel::Name.new self.to_s.gsub(config.param('modelname'), '').constantize
-    end
-
-    def const_model_name
-      model_name.to_s.constantize
+      ActiveModel::Name.new model_name_const.to_s.constantize
     end
 
     # we need to delegate all this methods to support active record interface
     [:all, :arel_table, :find_by_sql, :columns, :connection,\
      :unscoped, :table_name, :primary_key].each do |delegated_method|
       define_method(delegated_method) do |*args|
-        const_model_name.send(delegated_method, *args)
+        model_name_const.send(delegated_method, *args)
       end
     end
 
     def build_default_scope
-      const_model_name.send(:build_default_scope)
+      model_name_const.send(:build_default_scope)
     end
 
     def decorate(*args)
@@ -51,7 +51,7 @@ module ActiveadminPoroDecorator
       if collection_or_object.respond_to?(:to_ary)
         # assuming we have self.model_name method in decorator implementation
         # suggested by @eyefodder
-        DecoratedEnumerableProxy.new(collection_or_object, const_model_name)
+        DecoratedEnumerableProxy.new(collection_or_object, model_name_const)
       else
         new(collection_or_object)
       end
