@@ -1,7 +1,6 @@
 require 'activeadmin-poro-decorator/version'
 require 'activeadmin-poro-decorator/config'
-require 'activeadmin-poro-decorator/railtie' if defined?(Rails)
-require 'activeadmin-poro-decorator/activeadmin_comment'
+require 'activeadmin-poro-decorator/railtie'
 
 module ActiveadminPoroDecorator
   extend ActiveSupport::Concern
@@ -12,6 +11,15 @@ module ActiveadminPoroDecorator
 
   included do
     delegate :url_helpers, to: "Rails.application.routes"
+  end
+
+  def decorated?
+    true
+  end
+
+  def model
+    config = Config::Reader.new
+    ActiveModel::Name.new self.to_s.gsub(config.param('modelname'), '').constantize
   end
 
   module ClassMethods
