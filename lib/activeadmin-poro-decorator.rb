@@ -36,7 +36,8 @@ module ActiveadminPoroDecorator
 
     # we need to delegate all this methods to support active record interface
     [:all, :arel_table, :find_by_sql, :columns, :connection,\
-     :unscoped, :table_name, :primary_key].each do |delegated_method|
+     :unscoped, :table_name, :primary_key, :reflect_on_association,\
+     :reflect_on_all_associations, :reflect_on_aggregation, :reflections].each do |delegated_method|
       define_method(delegated_method) do |*args|
         model_name_const.send(delegated_method, *args)
       end
